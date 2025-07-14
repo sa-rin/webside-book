@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 100px;
+        gap: 10px;
+    }
+    input{
+        padding: 10px;
+        border-radius: 10px;
+    }
+    button{
+        padding: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    button:hover{
+        background-color: aqua;
+    }
+</style>
+<body>
+    <div class="container">
+        <input type="text" placeholder="Text to Speech">
+        <button>Speak</button>
+    </div>
+    <script>
+        const input = document.querySelector('input');
+        const btn = document.querySelector('button');
+        const textToSpeech = () => {
+            let text = input.value;
+            const voice = new SpeechSynthesisUtterance(text);
+            window.speechSynthesis.speak(voice);
+        }
+        btn.addEventListener('click', textToSpeech);
+    </script>
+</body>
+</html>
